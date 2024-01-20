@@ -1,0 +1,33 @@
+##################################################
+# Cypress容器設定
+##################################################
+
+# Docker Compose版本
+version: "3"
+
+# 伺服器設定
+services:
+  # Cypress容器
+  docker-cypress:
+    # 容器名稱
+    container_name: "docker-cypress"
+    # 基底映像檔
+    image: "docker-cypress"
+    # 參數-重開，永遠重開
+    restart: always
+    # 編譯路徑
+    build: ./.devcontainer/
+    # 埠號對映
+    # ports:
+    #   - "4000:4000"
+    # 磁區對映
+    volumes:
+      - ".:/srv/cypress/"
+      # 繼承Host主機帳號的SSH Key設定
+      - "~/.ssh/:/root/.ssh/:ro"
+      # 繼承Host主機帳號的git設定
+      - "~/.gitconfig/:/root/.gitconfig/:ro"
+    # 開機完後執行指令 - Interactive shell
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    entrypoint: /bin/bash
