@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="2.775" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-01-27T11:36:21" tests="0" file="cypress\e2e\1-getting-started\todo2.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="My First Test" timestamp="2024-01-27T11:36:21" tests="1" time="2.770" failures="0">
+    <testcase name="My First Test clicking &quot;type&quot; navigates to a new urlUsing cypress.env.jsonhttps://localhost" time="0.937" classname="clicking &quot;type&quot; navigates to a new urlUsing cypress.env.jsonhttps://localhost">
+    </testcase>
+  </testsuite>
+</testsuites>

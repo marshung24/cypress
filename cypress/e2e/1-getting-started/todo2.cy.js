@@ -2,8 +2,10 @@
 
 
 describe('My First Test', () => {
-  it('clicking "type" navigates to a new url', () => {
+  it('clicking "type" navigates to a new url' + Cypress.env('cypressEnv') + Cypress.env('base-url'), () => {
     cy.visit('https://example.cypress.io')
+
+    // cy.pause()
 
     cy.contains('type').click()
 

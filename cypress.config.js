@@ -4,9 +4,9 @@ const { defineConfig } = require("cypress");
 require('dotenv').config()
 
 module.exports = defineConfig({
-  // Cypress.env('....')
+  // Use by Cypress.env('....')
   env: {
-    
+    "base-url" : process.env.BASE_URL
   },
   e2e: {
     // 可以存取相對路徑並省略主機名稱和連接埠： cy.visit('/')
