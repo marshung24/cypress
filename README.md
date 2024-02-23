@@ -4,7 +4,7 @@
 ## Install
 ```sh
 # Install Cypress
-npm install cypress --save-dev
+npm install cypress cypress-multi-reporters mocha-junit-reporter cypress-mochawesome-reporter --save-dev
 
 # Install base package
 npm install dotenv express-jwt jwks-rsa
@@ -39,7 +39,7 @@ npx cypress run
 
 # 執行指定測試檔
 npx cypress run --spec <spec>
-# npx cypress run --spec "cypress/e2e/1-getting-started/todo.cy.js"
+# npx cypress run --spec "cypress/e2e/1-getting-started/todo.cy.js" --reporter cypress-multi-reporters
 # npx cypress run --spec "cypress/e2e/login/**/*"
 # npx cypress run --spec "cypress/e2e/examples/actions.cy.js,cypress/e2e/examples/files.cy.js"
 
@@ -98,4 +98,6 @@ cypress run --env <env>
 
 ## References
 - Cypress Guides: https://docs.cypress.io/guides/overview/why-cypress
-
+- Cypress-Plugins: https://github.com/YOU54F/cypress-plugins
+  - Reporter: https://github.com/YOU54F/cypress-plugins/tree/master/cypress-multi-reporters
+- 端對端測試: https://ithelp.ithome.com.tw/users/20109645/ironman/5708?page=2
