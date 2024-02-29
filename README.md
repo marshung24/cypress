@@ -58,13 +58,11 @@ cypress run --env <env>
 
 ## Assertions
 > https://docs.cypress.io/guides/references/assertions
+> https://www.chaijs.com/api/bdd/
 
 ### BDD
-- expect().to.eq()
-- should().and()
-
-### TDD
-- assert
+- expect().to.eql()
+- should('eql)
 
 ## Hooks
 > root hooks or block hooks(in describe)
@@ -96,8 +94,30 @@ cypress run --env <env>
   - 如果您在測試或掛鉤中使用箭頭函數，則將別名作為屬性存取this.*將不起作用。
   - 透過使用cy.get()我們可以避免使用this.
 
+
+## Advanced Installation
+
+### Opt out of sending exception data to Cypress
+```bash
+export CYPRESS_CRASH_REPORTS=0
+```
+
+### Opt out of Cypress commercial messaging
+```bash
+export CYPRESS_COMMERCIAL_RECOMMENDATIONS=0
+```
+
+## Reset DB
+- `setupNodeEvents`
+  - `db:seed`
+- `cy.exec`
+
+
 ## References
 - Cypress Guides: https://docs.cypress.io/guides/overview/why-cypress
 - Cypress-Plugins: https://github.com/YOU54F/cypress-plugins
   - Reporter: https://github.com/YOU54F/cypress-plugins/tree/master/cypress-multi-reporters
 - 端對端測試: https://ithelp.ithome.com.tw/users/20109645/ironman/5708?page=2
+- Reporters
+  - mocha-junit-reporter: https://www.npmjs.com/package/mocha-junit-reporter
+  - cypress-mochawesome-reporter: https://www.npmjs.com/package/cypress-mochawesome-reporter

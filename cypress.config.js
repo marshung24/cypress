@@ -1,5 +1,4 @@
 const { defineConfig } = require("cypress");
-const { afterRunHook, beforeRunHook } = require('cypress-mochawesome-reporter/lib');
 
 // Populate process.env with values from .env file
 require('dotenv').config()
@@ -15,21 +14,14 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
 
-      require('cypress-mochawesome-reporter/plugin')(on);
-
-      on('before:run', async (details) => {
-        await beforeRunHook(details);
-      });
-
-      on('after:run', async () => {
-        await afterRunHook();
-      });
+      // Import Event Config - cypress-mochawesome-reporter
+      // require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
   // Reporter
   reporter: 'cypress-multi-reporters',
   reporterOptions: {
-    reporterEnabled: 'spec, cypress-mochawesome-reporter, mocha-junit-reporter',
+    reporterEnabled: 'cypress-mochawesome-reporter, mocha-junit-reporter',
     mochaJunitReporterReporterOptions: {
       mochaFile: 'cypress/reports/junit/results-[hash].xml',
     },
@@ -41,5 +33,4 @@ module.exports = defineConfig({
       saveAllAttempts: false,
     }
   },
-  video: false,
 });
