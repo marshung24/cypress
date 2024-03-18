@@ -1,2 +1,7 @@
 node_modules
-.vscode
+cypress/downloads
+cypress/screenshots
+cypress/videos
+cypress/reports
+.DS_Store
+.DS_Store?
