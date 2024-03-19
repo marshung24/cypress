@@ -23,3 +23,34 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+/**
+ * Caching session when logging in via page visit
+ */
+Cypress.Commands.overwrite('loginByPage', (originalFn, url, options) => {
+    cy.session(name, () => {
+        cy.visit('https://mars7-cloud.rd1.nueip.site/?hrm_login=auth_code')
+        cy.get('[data-test=inputCompany]').type(name)
+        cy.get('[data-test=password]').type('s3cr3t')
+        cy.get('[data-test=password]').type('s3cr3t')
+        cy.get('form').contains('Log In').click()
+        cy.url().should('contain', '/login-successful')
+    })
+});
+
+/**
+ * Caching session when logging in via API
+ */
+Cypress.Commands.overwrite('loginByAPI', (originalFn, url, options) => {
+    cy.session(username, () => {
+        cy.request({
+            method: 'POST',
+            url: '/login',
+            body: { username, password },
+        }).then(({ body }) => {
+            window.localStorage.setItem('authToken', body.token)
+        })
+    })
+});
+

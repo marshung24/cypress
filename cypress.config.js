@@ -10,7 +10,7 @@ module.exports = defineConfig({
   },
   e2e: {
     // 可以存取相對路徑並省略主機名稱和連接埠： cy.visit('/')
-    // baseUrl: process.env.BASE_URL,
+    baseUrl: process.env.CYPRESS_BASE_URL || process.env.BASE_URL,
     setupNodeEvents(on, config) {
       // implement node event listeners here
 
