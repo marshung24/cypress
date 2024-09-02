@@ -13,9 +13,23 @@ npm ci
 # Install Cypress
 npm install cypress cypress-multi-reporters mocha-junit-reporter cypress-mochawesome-reporter --save-dev
 
+# Install JS Coding Style Tools for Cypress
+npm install eslint prettier eslint-plugin-cypress eslint-config-prettier eslint-plugin-prettier --save-dev
+
 # Install base package
 npm install dotenv express-jwt jwks-rsa --save-dev
 ```
+
+## Coding Style
+這些腳本允許你執行代碼檢查和格式化：
+```bash
+# 檢查代碼中的 ESLint 錯誤
+npm run lint
+
+# 自動格式化代碼
+npm run format
+```
+> 配合 package.json 的 scripts
 
 ## Open Cypress
 ### With Launchpad
