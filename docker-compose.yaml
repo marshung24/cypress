@@ -13,15 +13,11 @@ services:
     container_name: "docker-cypress"
     # 基底映像檔
     image: "docker-cypress"
-    # 參數-重開，永遠重開
-    restart: always
     # 編譯路徑
     build: ./.devcontainer/
-    # 埠號對映
-    # ports:
-    #   - "4000:4000"
     # 磁區對映
     volumes:
+      # 掛載程式
       - ".:/srv/cypress/"
       # 繼承Host主機帳號的SSH Key設定
       - "~/.ssh/:/root/.ssh/:ro"
